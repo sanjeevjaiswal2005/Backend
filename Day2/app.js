@@ -12,6 +12,9 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   res.send("this is contact page data");
 });
+app.get("/card", (req, res) => {
+  res.send("this is card page data");
+});
 app.listen(3000, () => {
   console.log("Server is running on the port 3000");
 });
