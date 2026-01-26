@@ -34,4 +34,5 @@ app.delete("/notes/:index", (req, res) => {
     message: "Notes deleted sucessfully....",
   });
 });
+
 module.exports = app;
