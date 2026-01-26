@@ -23,15 +23,15 @@ app.get("/notes", (req, res) => {
 PATCH==> Update a specifice resources
 */
 
-app.patch('/notes/:index', (req, res) => {
-    notes[req.params.index].discription = req.body.discription;
+app.patch("/notes/:index", (req, res) => {
+  notes[req.params.index].discription = req.body.discription;
 
-    res.send(notes)
-})
+  res.send(notes);
+});
 
 /* DELETE resource.... */
 app.delete("/notes/:index", (req, res) => {
-delete notes[req.params.index]
+  delete notes[req.params.index];
   res.send("Notes is deleted sucessfully......");
 });
 
