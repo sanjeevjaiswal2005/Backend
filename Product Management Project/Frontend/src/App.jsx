@@ -38,7 +38,7 @@ const App = () => {
 
   //fatching data from the database...
   function fetchProducts() {
-    axios.get("http://localhost:3000/api/products").then((res) => {
+    axios.get("https://backend-1aps.onrender.com/api/products").then((res) => {
       // console.log(res.data.products);
       setProduct(res.data.products);
     });
@@ -56,7 +56,7 @@ const App = () => {
     // console.log(bgImg.value, name.value, description.value, price.value);
 
     axios
-      .post("http://localhost:3000/api/products", {
+      .post("https://backend-1aps.onrender.com/api/products", {
         bgImg: bgImg.value,
         name: name.value,
         description: description.value,
@@ -73,7 +73,7 @@ const App = () => {
   function handleUpdate(prdId) {
     console.log(prdId);
     axios
-      .patch("http://localhost:3000/api/products/" + prdId, {
+      .patch("https://backend-1aps.onrender.com/api/products/" + prdId, {
         name: "Updated name",
         description: "updated description",
         price: "000",
@@ -86,10 +86,12 @@ const App = () => {
 
   //deleting the products.
   function handleDelete(prdId) {
-    axios.delete("http://localhost:3000/api/products/" + prdId).then((res) => {
-      console.log(res.data);
-      fetchProducts();
-    });
+    axios
+      .delete("https://backend-1aps.onrender.com/api/products/" + prdId)
+      .then((res) => {
+        console.log(res.data);
+        fetchProducts();
+      });
     console.log(prdId);
   }
 
