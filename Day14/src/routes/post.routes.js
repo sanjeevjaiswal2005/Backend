@@ -10,4 +10,17 @@ postRouter.post(
   postController.postCreateController,
 );
 
+//api for the getting all post of the user from the database.
+
+/**
+ * GET/api/posts
+ */
+postRouter.get("/", postController.postGetController);
+
+/**
+ * Get/api/posts/details/:postId,
+ */
+
+postRouter.get("/details/:postId", postController.getPostDetails);
+
 module.exports = postRouter;
