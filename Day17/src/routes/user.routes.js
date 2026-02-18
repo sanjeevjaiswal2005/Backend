@@ -22,7 +22,7 @@ userRouter.post(
  * @access Private
  */
 userRouter.post(
-  "/unfollow/:user",
+  "/unfollow/:username",
   identifyUser,
   userController.unfollowController,
 );

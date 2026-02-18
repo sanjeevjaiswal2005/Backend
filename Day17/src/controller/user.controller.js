@@ -22,10 +22,10 @@ async function followController(req, res) {
   }
 
   const isFolloweeExist = await userModel.findOne({
-    followee: followeeUser,
+    username: followeeUser,
   });
 
-  if (isFolloweeExist) {
+  if (!isFolloweeExist) {
     return res.status(404).json({
       message: `${followeeUser} is not exist`,
     });
@@ -36,7 +36,7 @@ async function followController(req, res) {
   });
 
   res.status(201).json({
-    message: `You are now following ${followerUser}`,
+    message: `You are now following ${followeeUser}`,
     follow: followRecord,
   });
 }
@@ -52,14 +52,14 @@ async function unfollowController(req, res) {
 
   if (!isUserFollowing) {
     return res.status(200).json({
-      message: `you are not following ${followerUser}`,
+      message: `you are not following ${followeeUser}`,
     });
   }
 
   await followModel.findByIdAndDelete(isUserFollowing._id);
 
   res.status(200).json({
-    message: `You have unfollow ${followerUser}`,
+    message: `You have unfollow ${followeeUser}`,
   });
 }
 module.exports = {
