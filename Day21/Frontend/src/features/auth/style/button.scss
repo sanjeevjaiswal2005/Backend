@@ -1,0 +1,15 @@
+.button {
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(207, 39, 5);
+  border: none;
+  outline: none;
+  color: whitesmoke;
+  font-size: 1.2rem;
+  transition: all ease-in;
+}
+
+.button:active {
+  transform: scale(0.94);
+}

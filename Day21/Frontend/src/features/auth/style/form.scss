@@ -1,0 +1,32 @@
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .form-container {
+    @include flexColumn;
+    form {
+      @include flexColumn;
+      min-width: 350px;
+
+      input {
+        padding-inline: 1rem;
+        padding-block: 1rem;
+        border-radius: 1rem;
+        border: none;
+        outline: none;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: red;
+    }
+  }
+}
