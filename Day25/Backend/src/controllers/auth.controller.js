@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const blacklistModel = require("../models/blacklist.model");
 const redis = require("../config/cache");
+
 async function registerController(req, res) {
   const { username, email, password } = req.body;
 
@@ -46,7 +47,6 @@ async function registerController(req, res) {
     },
   });
 }
-
 async function loginController(req, res) {
   const { username, email, password } = req.body;
 
@@ -86,7 +86,6 @@ async function loginController(req, res) {
     },
   });
 }
-
 async function getUserController(req, res) {
   try {
     const user = await userModel.findById(req.user.id);
@@ -100,7 +99,6 @@ async function getUserController(req, res) {
     });
   }
 }
-
 async function logoutController(req, res) {
   const token = req.cookies.token;
   res.clearCookie("token");
