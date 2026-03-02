@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const blacklistModel = require("../models/blacklist.model");
-
+const redis = require("../config/cache");
 async function authUser(req, res, next) {
   const token = req.cookies.token;
   if (!token) {
@@ -9,11 +9,11 @@ async function authUser(req, res, next) {
       message: "Token is not found",
     });
   }
-  const userIsblacklist = await blacklistModel.findOne({token});
+  const userIsblacklist = await redis.get(token);
 
   if (userIsblacklist) {
     return res.status(401).json({
-      message: "unauthorized user",
+      message: "Invalid Token",
     });
   }
 
